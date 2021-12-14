@@ -3,53 +3,18 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const { required } = require('nodemon/lib/config');
+
+app.use(express.json());
+
 // importing todoController
 const todoController = require('./controllers/todoController');
+
 app.post('/todo',todoController.addTodo);
 app.get('/todo',todoController.getAllTodo);
 app.put('/todo',todoController.updateTodoById);
 app.delete('/todo',todoController.deleteTodoById);
 
-// app.get('/', (request,response)=> {
-//     response.send('Hello thi is a get method');
-// })
 
-
-// app.listen(3000,() => {
-//     console.log('My server is up and running on port 3000');
-// });
-
-// app.post('/',(request,response)=>{
-//     response.send('Hi I am Techno');
-// });
-
-// app.put('/',(request,response)=>{
-//     response.send('Hi I am Prime');
-// });
-
-// app.listen(4500,() => {
-//     console.log('My server is up and running on port 3000');
-// });
-
-// app.get('/todos',(request,response)=>{
-//     response.send([{
-//         'title': 'Plan trip to Brazil',
-//         'description': 'I will go with my friends and families',
-//         'time':'Tomorrow',
-//         'isCompleted': false
-//     }]);
-// });
-// app.listen(5500,() => {
-//     console.log('Happy Day for me');
-// });
-
-// app.get('/bam',(request,response)=>{
-//     response.send([{
-//         'username': 'Ing. Bethel',
-//         'password': 'Blackthunda480',
-//         'isCompleted': false
-//     }]);
-// });
 // listening to request on localhost port 8020
 app.listen(8020,() => {
     console.log('Welcome to our world');

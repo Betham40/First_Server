@@ -1,10 +1,17 @@
 const todoModel = require('../model/todoModel');
 
-function addTodo(request,response){
 
+
+async function addTodo(request,response){
+try {
+    const newTodo = await todoModel.create(request.body);
+    response.status(905).json(newTodo);
+} catch (error) {
+    console.log('Something went wrong', error.message);
+}
 }
 
-function getAllTodo(requset,response){
+function getAllTodo(request,response){
 
 }
 
