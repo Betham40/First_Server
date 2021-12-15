@@ -11,8 +11,9 @@ const todoController = require('./controllers/todoController');
 
 app.post('/todo',todoController.addTodo);
 app.get('/todo',todoController.getAllTodo);
-app.put('/todo',todoController.updateTodoById);
+app.patch('/todo/:todoId',todoController.updateTodoById);
 app.delete('/todo',todoController.deleteTodoById);
+app.get('/todo/:todoId',todoController.getTodoById);
 
 
 // listening to request on localhost port 8020
