@@ -20,7 +20,13 @@ try {
     }
 
 }
-function getAllTodo(request,response){
+async function getAllTodo(request,response){
+        try{
+            const getAll = await todoModel.find();
+            response.status(200).json(getAll);
+        } catch (error) {
+            console.log('Syntax error',error.message);
+        }  
 
 }
 
@@ -34,7 +40,13 @@ async function updateTodoById(request,response){
 
 }
 
-function deleteTodoById(request,reponse){
+async function deleteTodoById(request,reponse){
+    try{
+         await todoModel.findByIdAndDelete(request.params.todoId);
+        reponse.status(200).json({message: 'todo deleted'});
+    } catch (error) {
+        console.log('Syntax error',error.message);
+    }
 
 }
 
