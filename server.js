@@ -1,6 +1,8 @@
 const { request, response } = require('express');
 const express = require('express');
 const app = express();
+require('dotenv').config();
+const PORT = process.env.PORT|| 1200
 const mongoose = require('mongoose');
 const { required } = require('nodemon/lib/config');
 
@@ -17,10 +19,10 @@ app.get('/todo/:todoId',todoController.getTodoById);
 
 
 // listening to request on localhost port 8020
-app.listen(8020,() => {
-    console.log('Welcome to our world');
+app.listen(PORT,() => {
+    console.log('Welcome to our world',PORT);
     // connecting the database
-    mongoose.connect('mongodb+srv://BamCloud:0548448022@cluster0.u3cox.mongodb.net/todo_db?retryWrites=true&w=majority')
+    mongoose.connect(process.env.DB_URL)
     .then(function(){
         console.log('Database is connected');
     })
