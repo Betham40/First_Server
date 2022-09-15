@@ -9,7 +9,7 @@ const { required } = require('nodemon/lib/config');
 app.use(express.json());
 
 app.get('/',(request,response)=>{
-    response.status(200).json({message:'Hello Welcome to my todo API'});
+    response.status(200).json({message:'Hi I am available'});
 });
 
 // importing todoController
